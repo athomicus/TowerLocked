@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://cs57jxt1r8lbt"]
+
+[ext_resource type="Texture2D" uid="uid://dnm6p677xph1k" path="res://Objetcs/Princess/princess2_.png" id="1_ysv60"]
+[ext_resource type="Texture2D" uid="uid://p0rutdaignyj" path="res://Objetcs/Princess/princess_AO..png" id="2_fdu3w"]
+[ext_resource type="ArrayMesh" uid="uid://lmwk123yod6s" path="res://Objetcs/Princess/princess.obj" id="2_sj4tx"]
+[ext_resource type="Texture2D" uid="uid://d0nxsvqyd7nlw" path="res://Objetcs/Princess/helm.png" id="4_d0bom"]
+[ext_resource type="ArrayMesh" uid="uid://bxqegqalngpa2" path="res://Objetcs/Princess/helm.obj" id="5_uyl1v"]
+[ext_resource type="Texture2D" uid="uid://cp25a1rckubvj" path="res://Objetcs/Princess/AO_helm_modo.png" id="5_yr4ui"]
+[ext_resource type="Texture2D" uid="uid://cex3mx6pm6g8v" path="res://Objetcs/Princess/HairColor.png" id="7_g0rab"]
+[ext_resource type="ArrayMesh" uid="uid://c884px32m2505" path="res://Objetcs/Princess/hairPrincess.obj" id="10_ghpty"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0on4"]
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("1_ysv60")
+metallic = 0.01
+metallic_specular = 0.08
+roughness = 0.01
+emission_enabled = true
+emission_energy_multiplier = 0.2
+emission_texture = ExtResource("1_ysv60")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_fdu3w")
+ao_texture_channel = 4
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mbfk"]
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("4_d0bom")
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.1
+emission_texture = ExtResource("4_d0bom")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("5_yr4ui")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hh1i"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("7_g0rab")
+texture_filter = 0
+texture_repeat = false
+disable_receive_shadows = true
+
+[node name="main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.989811, -0.00136917, 0.142378, 0.00167583, 0.999997, -0.002034, -0.142374, 0.00225188, 0.98981, 0.138, 0.757, 0.953)
+
+[node name="Princess" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, -0.00117532, 0.000463935, 0.00117557, 0.999999, -0.000551555, -0.000463284, 0.000552101, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p0on4")
+gi_mode = 0
+mesh = ExtResource("2_sj4tx")
+
+[node name="Helm" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_4mbfk")
+mesh = ExtResource("5_uyl1v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.312882, 0.477134, 0.821248, 0, -0.864661, 0.502356, 0.949792, -0.157178, -0.270537, -5.12445, 1.97039, 0)
+light_energy = 0.134
+light_indirect_energy = 0.579
+light_volumetric_fog_energy = 1.072
+light_bake_mode = 0
+directional_shadow_mode = 0
+
+[node name="HairPrincess" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_8hh1i")
+gi_mode = 0
+mesh = ExtResource("10_ghpty")
