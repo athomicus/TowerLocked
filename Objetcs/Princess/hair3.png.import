@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwws5cma304s"
-path.s3tc="res://.godot/imported/Bitmap2Material_3_Normal.bmp-1e59d9839712c0df946de24268018dc2.s3tc.ctex"
+uid="uid://dnebr7l306ips"
+path.s3tc="res://.godot/imported/hair3.png-1bec287858c8dc934d5eb03c3e12b260.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Objetcs/Princess/Bitmap2Material_3_Normal.bmp"
-dest_files=["res://.godot/imported/Bitmap2Material_3_Normal.bmp-1e59d9839712c0df946de24268018dc2.s3tc.ctex"]
+source_file="res://Objetcs/Princess/hair3.png"
+dest_files=["res://.godot/imported/hair3.png-1bec287858c8dc934d5eb03c3e12b260.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Objetcs/Princess/Bitmap2Material_3_Normal.bmp"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
