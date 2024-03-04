@@ -1,0 +1,9 @@
+# MTL written from C:\Users\AR2R\Documents\TowerLocked\Objetcs\Tower\Stairs.obj
+newmtl Default
+Kd 0 0 0
+Ns 4096
+d 1
+illum 1
+Ka 0.727848 0.727848 0.727848
+Ks 0 0 0
+map_Ka C:\acerola\TOWeR\RenderStair.png
