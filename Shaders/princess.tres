@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://p0rutdaignyj" path="res://Objetcs/Princess/princess_AO..png" id="2_8wnp6"]
 
 [resource]
-diffuse_mode = 3
+diffuse_mode = 1
 specular_mode = 2
 disable_ambient_light = true
 albedo_texture = ExtResource("1_2jxjw")
 metallic = 0.01
 metallic_specular = 0.08
 roughness = 0.01
-emission_enabled = true
 emission_energy_multiplier = 0.2
 emission_texture = ExtResource("1_2jxjw")
 ao_light_affect = 1.0

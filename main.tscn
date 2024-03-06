@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cs57jxt1r8lbt"]
+[gd_scene load_steps=43 format=3 uid="uid://cs57jxt1r8lbt"]
 
 [ext_resource type="Material" uid="uid://xne3x8ll0rpu" path="res://Shaders/princess.tres" id="1_fnomf"]
 [ext_resource type="Texture2D" uid="uid://d0nxsvqyd7nlw" path="res://Objetcs/Princess/helm.png" id="4_d0bom"]
@@ -16,6 +16,37 @@
 [ext_resource type="ArrayMesh" uid="uid://dtc27meqpdfph" path="res://Objetcs/Tower/wieza_zakonczona.obj" id="14_lnb14"]
 [ext_resource type="ArrayMesh" uid="uid://clpvt8m6ce3bb" path="res://Objetcs/Tower/wizeza2.obj" id="15_50xiu"]
 [ext_resource type="Script" path="res://Enemy.gd" id="16_a1ka6"]
+[ext_resource type="PackedScene" uid="uid://biywore6q0if0" path="res://particles_die.tscn" id="17_i6dp1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y5q7p"]
+viewport_path = NodePath("Enemy/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdf77"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.117647, 0.117647, 0.117647, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8w8h"]
+bg_color = Color(0.709804, 0.101961, 0.109804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p7xeq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_m6bhd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3rpnx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p4vt5"]
 height = 1.8
@@ -123,13 +154,12 @@ bind/24/pose = Transform3D(-0.999953, 0.0075018, 0.00618448, 0.00607575, -0.0144
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehbnn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mbfk"]
-diffuse_mode = 3
+diffuse_mode = 1
 specular_mode = 2
 disable_ambient_light = true
 albedo_texture = ExtResource("4_d0bom")
 metallic_specular = 0.0
 roughness = 0.0
-emission_enabled = true
 emission_energy_multiplier = 0.1
 emission_texture = ExtResource("4_d0bom")
 ao_enabled = true
@@ -896,6 +926,23 @@ tracks/20/path = NodePath("Armature/Skeleton3D:mixamorig_RightToeBase")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = PackedFloat32Array(0, 1, 0.344871, -0.00431323, 0.00865948, 0.9386, 0.0333333, 1, 0.344871, -0.00431323, 0.00865948, 0.9386, 0.0666667, 1, 0.345355, -0.00179894, 0.00839947, 0.938433, 0.1, 1, 0.349462, -0.0023783, 0.0094165, 0.9369, 0.133333, 1, 0.353808, -0.00886348, 0.0154811, 0.935148, 0.166667, 1, 0.358944, -0.0147856, 0.0218481, 0.932986, 0.2, 1, 0.362386, -0.0191057, 0.0286981, 0.93139, 0.233333, 1, 0.366663, -0.0212588, 0.0338338, 0.929496, 0.266667, 1, 0.37146, -0.0220775, 0.0377588, 0.927418, 0.3, 1, 0.37601, -0.0231168, 0.0409018, 0.925424, 0.333333, 1, 0.376799, -0.018188, 0.0405013, 0.92523, 0.366667, 1, 0.377245, -0.0137117, 0.0354533, 0.925333, 0.4, 1, 0.381864, -0.0108434, 0.0294305, 0.923686, 0.433333, 1, 0.388137, -0.00929155, 0.0282693, 0.921121, 0.466667, 1, 0.393535, 0.00231683, 0.0229888, 0.919019, 0.5, 1, 0.413631, 0.036586, 0.0291813, 0.909241, 0.533333, 1, 0.438028, 0.0728486, 0.0382047, 0.89519, 0.566667, 1, 0.453359, 0.12012, 0.0404337, 0.882271, 0.6, 1, 0.45246, 0.119644, 0.0444803, 0.882602, 0.633333, 1, 0.442763, 0.118263, 0.0404936, 0.887882, 0.666667, 1, 0.454689, 0.121325, 0.0387576, 0.881497, 0.7, 1, 0.46825, 0.122762, 0.0344791, 0.874347, 0.733333, 1, 0.475638, 0.120216, 0.0306901, 0.870847, 0.766667, 1, 0.474288, 0.117264, 0.0199351, 0.872297, 0.8, 1, 0.478489, 0.10635, 0.022311, 0.871344, 0.833333, 1, 0.484417, 0.0990539, 0.018678, 0.869011, 0.866667, 1, 0.476347, 0.101379, 0.0151688, 0.873262, 0.9, 1, 0.462667, 0.0955559, 0.0183558, 0.881176, 0.933333, 1, 0.441015, 0.0864612, 0.0131518, 0.893229, 0.966667, 1, 0.411155, 0.0790581, -0.00500737, 0.908117, 1, 1, 0.418847, 0.0834201, -0.00806988, 0.904181, 1.03333, 1, 0.422056, 0.0697263, 0.00125091, 0.903884, 1.06667, 1, 0.421589, 0.0651903, 0.0146301, 0.904322, 1.1, 1, 0.411496, 0.0546129, 0.0239513, 0.909459, 1.13333, 1, 0.401527, 0.0452433, 0.0222711, 0.914458, 1.16667, 1, 0.388559, 0.0334492, 0.0182902, 0.920635, 1.2, 1, 0.373413, 0.0205283, 0.0157772, 0.927304, 1.23333, 1, 0.359144, 0.00723604, 0.0136748, 0.933154, 1.26667, 1, 0.349493, -0.000334103, 0.0105031, 0.93688, 1.3, 1, 0.344871, -0.00431339, 0.00865962, 0.9386)
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("..")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"non_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cc4dd"]
 resource_name = "Walk"
@@ -1211,10 +1258,10 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aux6m"]
+diffuse_mode = 1
 albedo_texture = ExtResource("9_dtgbx")
 metallic_specular = 0.0
 roughness = 0.0
-emission_enabled = true
 emission_energy_multiplier = 0.2
 emission_texture = ExtResource("9_dtgbx")
 normal_enabled = true
@@ -1228,11 +1275,77 @@ size = Vector3(2.07, 1.99, 0.096)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ej6xc"]
 size = Vector3(1.66191, 1.99, 0.096)
 
-[sub_resource type="SphereMesh" id="SphereMesh_m6bhd"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_p7xeq"]
+[sub_resource type="Environment" id="Environment_l80yt"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_exposure = 2.36
+tonemap_white = 6.75
+ssao_enabled = true
+ssao_intensity = 2.25
+glow_enabled = true
+glow_levels/1 = 14.0
+glow_levels/2 = 3.61
+glow_levels/3 = 8.29
+glow_levels/4 = 4.85
+glow_levels/5 = 5.53
+glow_levels/6 = 1.34
+glow_levels/7 = 4.68
+glow_intensity = 1.07
+glow_strength = 0.73
+glow_bloom = 0.01
+glow_blend_mode = 1
 
 [node name="main" type="Node3D"]
+
+[node name="Enemy" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999303, -0.0373414, 0, 0.0373414, 0.999303, -4.54592, 2.52933, 2.41826)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("16_a1ka6")
+deathParticle = ExtResource("17_i6dp1")
+
+[node name="Sprite3D" type="Sprite3D" parent="Enemy"]
+billboard = 1
+texture = SubResource("ViewportTexture_y5q7p")
+
+[node name="SubViewport" type="SubViewport" parent="Enemy"]
+disable_3d = true
+transparent_bg = true
+msaa_2d = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemy/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -106.0
+offset_right = 30.0
+offset_bottom = -96.0001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_hdf77")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y8w8h")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Area3D" type="Area3D" parent="Enemy"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/Area3D"]
+shape = SubResource("SphereShape3D_p7xeq")
+
+[node name="EnemyVisualize" type="MeshInstance3D" parent="Enemy"]
+mesh = SubResource("SphereMesh_m6bhd")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+transform = Transform3D(1.09, 0, 0, 0, 1.09, 3.72529e-09, 0, -3.72529e-09, 1.09, 0, 0, 0)
+shape = SubResource("SphereShape3D_3rpnx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.312882, 0.477134, 0.821248, 0, -0.864661, 0.502356, 0.949792, -0.157178, -0.270537, -5.12445, 1.97039, 0)
@@ -1253,26 +1366,27 @@ visible = false
 material_override = ExtResource("13_bk6wi")
 mesh = ExtResource("15_50xiu")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681419, 0.827441, 4.73439)
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681419, 0.928138, 4.73439)
+collision_mask = 10
 script = ExtResource("11_2seyt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.71, 0.00013631, 0, -0.00013631, 0.71, 0, 0, 0, 0.71, 0, 0.634125, 0)
 shape = SubResource("CylinderShape3D_p4vt5")
 
-[node name="Princess" type="Node3D" parent="CharacterBody3D"]
+[node name="Princess" type="Node3D" parent="Player"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="Armature" type="Node3D" parent="CharacterBody3D/Princess"]
+[node name="Armature" type="Node3D" parent="Player/Princess"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/Princess/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Player/Princess/Armature"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -1.55028e-17, -0.0279274, -0.507481)
 bones/0/enabled = true
-bones/0/position = Vector3(0.00519036, -0.0208504, -0.481198)
+bones/0/position = Vector3(0.00519004, -0.0208502, -0.481198)
 bones/0/rotation = Quaternion(-0.669263, -0.0985127, 0.0931, 0.730558)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "mixamorig_Spine"
@@ -1280,21 +1394,21 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 8.79738e-17, -1.41205e-17, -8.90998e-17, 0.987362, -0.158479, 3.30872e-24, 0.15848, 0.987362, 5.28644e-18, 0.0593317, 0.0095232)
 bones/1/enabled = true
 bones/1/position = Vector3(5.28644e-18, 0.0593317, 0.0095232)
-bones/1/rotation = Quaternion(0.277136, 0.0374112, 0.00147475, 0.960101)
+bones/1/rotation = Quaternion(0.277136, 0.0374112, 0.00147478, 0.960101)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "mixamorig_Spine1"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 4.64632e-23, -6.56549e-24, -4.64632e-23, 1, -7.45058e-08, 6.56549e-24, 7.45058e-08, 1, -5.44907e-24, 0.0701061, 1.16415e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(-5.44907e-24, 0.0701061, 1.16415e-08)
-bones/2/rotation = Quaternion(0.0321928, 0.00980758, -0.00864832, 0.999396)
+bones/2/rotation = Quaternion(0.0321928, 0.00980759, -0.00864832, 0.999396)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "mixamorig_Spine2"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, -3.62613e-23, 5.80199e-24, 3.62613e-23, 1, 7.45058e-08, -5.80199e-24, -7.45058e-08, 1, 1.29441e-24, 0.0801214, -1.81608e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(1.29441e-24, 0.0801214, -1.81608e-08)
-bones/3/rotation = Quaternion(0.0321272, 0.010438, -0.00877376, 0.999391)
+bones/3/rotation = Quaternion(0.0321271, 0.010438, -0.00877376, 0.999391)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "mixamorig_Neck"
 bones/4/parent = 3
@@ -1329,14 +1443,14 @@ bones/8/parent = 7
 bones/8/rest = Transform3D(0.999496, 0.031536, 0.00371634, -0.0317542, 0.992626, 0.116987, 3.55649e-07, -0.117046, 0.993126, -1.58325e-08, 0.142387, -1.21072e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-1.58325e-08, 0.142387, -1.21072e-08)
-bones/8/rotation = Quaternion(0.468617, -0.10299, 0.362225, 0.799115)
+bones/8/rotation = Quaternion(0.468616, -0.10299, 0.362225, 0.799115)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "mixamorig_LeftForeArm"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.997819, 0.0633522, 0.018517, -0.0660028, 0.957748, 0.279931, -3.09199e-07, -0.280543, 0.959841, -3.72529e-09, 0.0852879, -1.37603e-07)
 bones/9/enabled = true
 bones/9/position = Vector3(-3.72529e-09, 0.0852879, -1.37603e-07)
-bones/9/rotation = Quaternion(-0.0532057, -0.0489762, 0.364387, 0.928436)
+bones/9/rotation = Quaternion(-0.0532057, -0.0489763, 0.364387, 0.928436)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "mixamorig_LeftHand"
 bones/10/parent = 9
@@ -1364,7 +1478,7 @@ bones/13/parent = 12
 bones/13/rest = Transform3D(0.999056, -0.0416422, -0.0123474, 0.0434342, 0.957835, 0.284016, -2.468e-07, -0.284284, 0.95874, -1.74623e-08, 0.085301, -2.2375e-07)
 bones/13/enabled = true
 bones/13/position = Vector3(-1.74623e-08, 0.085301, -2.2375e-07)
-bones/13/rotation = Quaternion(-0.128426, 0.107924, -0.469743, 0.866718)
+bones/13/rotation = Quaternion(-0.128426, 0.107925, -0.469743, 0.866718)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/name = "mixamorig_RightHand"
 bones/14/parent = 13
@@ -1378,7 +1492,7 @@ bones/15/parent = 0
 bones/15/rest = Transform3D(-0.999604, -0.028149, 1.95578e-08, 0.0281475, -0.999549, 0.0104691, -0.000294675, 0.010465, 0.999945, 0.0807654, -0.0328434, 0.0144072)
 bones/15/enabled = true
 bones/15/position = Vector3(0.0807654, -0.0328434, 0.0144072)
-bones/15/rotation = Quaternion(0.0464628, 0.292293, 0.952974, -0.0651648)
+bones/15/rotation = Quaternion(0.0464627, 0.292293, 0.952974, -0.0651646)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/name = "mixamorig_LeftLeg"
 bones/16/parent = 15
@@ -1392,14 +1506,14 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(0.999968, 0.00619636, 0.00507454, 1.60653e-07, 0.63358, -0.773677, -0.0080091, 0.773652, 0.63356, -3.66208e-09, 0.187771, -1.40153e-09)
 bones/17/enabled = true
 bones/17/position = Vector3(-3.66208e-09, 0.187771, -1.40153e-09)
-bones/17/rotation = Quaternion(0.462841, -0.0277174, -0.0623268, 0.883813)
+bones/17/rotation = Quaternion(0.462841, -0.0277171, -0.0623262, 0.883813)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "mixamorig_LeftToeBase"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.999996, -0.00168596, -0.00207927, 1.25263e-07, 0.776773, -0.629781, 0.0026769, 0.629779, 0.77677, -1.15251e-08, 0.114198, 4.21423e-08)
 bones/18/enabled = true
 bones/18/position = Vector3(-1.15251e-08, 0.114198, 4.21423e-08)
-bones/18/rotation = Quaternion(0.337105, 0.00102195, -0.0115263, 0.941396)
+bones/18/rotation = Quaternion(0.337105, 0.00102193, -0.0115263, 0.941396)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "mixamorig_LeftToe_End"
 bones/19/parent = 18
@@ -1413,28 +1527,28 @@ bones/20/parent = 0
 bones/20/rest = Transform3D(-0.999604, 0.0281495, -4.4347e-08, -0.0281485, -0.999568, 0.00848875, 0.00023891, 0.00848539, 0.999964, -0.0807654, -0.0328434, 0.0142357)
 bones/20/enabled = true
 bones/20/position = Vector3(-0.0807654, -0.0328434, 0.0142357)
-bones/20/rotation = Quaternion(-0.106206, 0.097044, 0.985681, 0.0879519)
+bones/20/rotation = Quaternion(-0.106207, 0.0970434, 0.985681, 0.0879518)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "mixamorig_RightLeg"
 bones/21/parent = 20
 bones/21/rest = Transform3D(0.999285, 0.0377983, 0.000563971, -0.0378025, 0.999177, 0.014674, -8.85423e-06, -0.0146848, 0.999892, -1.74259e-09, 0.200064, -1.12858e-09)
 bones/21/enabled = true
 bones/21/position = Vector3(-1.74259e-09, 0.200064, -1.12858e-09)
-bones/21/rotation = Quaternion(-0.285374, 0.0549726, -0.0213608, 0.9566)
+bones/21/rotation = Quaternion(-0.285373, 0.0549726, -0.0213607, 0.9566)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "mixamorig_RightFoot"
 bones/22/parent = 21
 bones/22/rest = Transform3D(0.999968, -0.00619531, -0.00512188, 5.3551e-08, 0.637184, -0.770712, 0.00803838, 0.770687, 0.637163, 6.98128e-09, 0.187767, -2.82853e-10)
 bones/22/enabled = true
 bones/22/position = Vector3(6.98128e-09, 0.187767, -2.82853e-10)
-bones/22/rotation = Quaternion(0.594157, 0.0500434, 0.102641, 0.796202)
+bones/22/rotation = Quaternion(0.594156, 0.0500435, 0.102641, 0.796203)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "mixamorig_RightToeBase"
 bones/23/parent = 22
 bones/23/rest = Transform3D(0.999996, 0.00173281, 0.00213154, 1.80327e-07, 0.775906, -0.630848, -0.00274702, 0.630846, 0.775903, -3.98722e-09, 0.114011, 1.74623e-10)
 bones/23/enabled = true
 bones/23/position = Vector3(-3.98722e-09, 0.114011, 1.74623e-10)
-bones/23/rotation = Quaternion(0.344871, -0.00431323, 0.00865948, 0.9386)
+bones/23/rotation = Quaternion(0.344871, -0.00431339, 0.00865962, 0.9386)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "mixamorig_RightToe_End"
 bones/24/parent = 23
@@ -1444,61 +1558,62 @@ bones/24/position = Vector3(-1.68802e-09, 0.0460259, 9.8953e-10)
 bones/24/rotation = Quaternion(5.11136e-08, -2.4433e-07, 2.41334e-07, 1)
 bones/24/scale = Vector3(1, 1, 1)
 
-[node name="Default" type="MeshInstance3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D"]
+[node name="Default" type="MeshInstance3D" parent="Player/Princess/Armature/Skeleton3D"]
 material_override = ExtResource("1_fnomf")
 mesh = SubResource("ArrayMesh_v3246")
 skin = SubResource("Skin_osg0h")
 
-[node name="BoneAttachment-Head" type="BoneAttachment3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D"]
-transform = Transform3D(0.999846, -0.0175688, -0.000290081, 0.00273672, 0.139395, 0.990233, -0.0173568, -0.990081, 0.139422, -0.0325769, 0.169415, -0.77594)
+[node name="BoneAttachment-Head" type="BoneAttachment3D" parent="Player/Princess/Armature/Skeleton3D"]
+transform = Transform3D(0.999846, -0.0175687, -0.000290014, 0.00273659, 0.139395, 0.990233, -0.0173567, -0.990081, 0.139422, -0.0325772, 0.169415, -0.77594)
 bone_name = "mixamorig_Head"
 bone_idx = 5
 
-[node name="Helm" type="MeshInstance3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D/BoneAttachment-Head"]
+[node name="Helm" type="MeshInstance3D" parent="Player/Princess/Armature/Skeleton3D/BoneAttachment-Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84, -0.04)
+visible = false
 material_override = SubResource("StandardMaterial3D_4mbfk")
 mesh = ExtResource("5_uyl1v")
 skeleton = NodePath("../../../../../..")
 
-[node name="Hair3" type="MeshInstance3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D/BoneAttachment-Head"]
+[node name="Hair3" type="MeshInstance3D" parent="Player/Princess/Armature/Skeleton3D/BoneAttachment-Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.862, -0.028)
 material_override = ExtResource("7_3fxri")
 mesh = ExtResource("8_7rcvn")
 skeleton = NodePath("../../../../../..")
 
-[node name="BoneAttachment-Hand" type="BoneAttachment3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D"]
-transform = Transform3D(0.569199, -0.428103, -0.701955, -0.554251, 0.430824, -0.712177, 0.607304, 0.79443, 0.00794798, 0.123503, 0.235575, -0.485438)
+[node name="BoneAttachment-Hand" type="BoneAttachment3D" parent="Player/Princess/Armature/Skeleton3D"]
+transform = Transform3D(0.5692, -0.428102, -0.701954, -0.55425, 0.430825, -0.712178, 0.607304, 0.79443, 0.00794949, 0.123503, 0.235576, -0.485438)
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
-[node name="Sword2" type="MeshInstance3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D/BoneAttachment-Hand"]
+[node name="Sword2" type="MeshInstance3D" parent="Player/Princess/Armature/Skeleton3D/BoneAttachment-Hand"]
 transform = Transform3D(-0.82089, -0.48064, -1.12632, 0.415461, 0.996579, -0.868991, 1.18472, -0.682519, -0.475682, -0.133569, 0.248109, -0.0463215)
 material_override = ExtResource("7_j36tp")
 mesh = ExtResource("8_6h3c1")
 skeleton = NodePath("../../../../../..")
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D/BoneAttachment-Hand/Sword2"]
+[node name="Area3D" type="Area3D" parent="Player/Princess/Armature/Skeleton3D/BoneAttachment-Hand/Sword2"]
 transform = Transform3D(1, -1.49012e-08, -3.72529e-09, -1.49012e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Princess/Armature/Skeleton3D/BoneAttachment-Hand/Sword2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Princess/Armature/Skeleton3D/BoneAttachment-Hand/Sword2/Area3D"]
 transform = Transform3D(1, -1.49012e-08, 3.72529e-09, -1.19209e-07, 1, 0, -1.86265e-08, 0, 1, 0.00176862, 0.187705, 0.00179821)
 shape = SubResource("BoxShape3D_y1bvi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Princess"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Princess"]
 libraries = {
 "": SubResource("AnimationLibrary_ttxor")
 }
 
-[node name="IdleTimer" type="Timer" parent="CharacterBody3D/Princess"]
+[node name="IdleTimer" type="Timer" parent="Player/Princess"]
 wait_time = 2.0
 autostart = true
 
-[node name="MyCamera" type="Node3D" parent="CharacterBody3D"]
+[node name="MyCamera" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.998938, 0.0460778, 0, -0.0460778, 0.998938, 0, 1, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/MyCamera"]
+[node name="Camera3D" type="Camera3D" parent="Player/MyCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042, 0, 2.064)
 fov = 93.8802
 
@@ -1510,6 +1625,8 @@ mesh = ExtResource("12_facmw")
 skeleton = NodePath("../..")
 
 [node name="01" type="StaticBody3D" parent="LongStairs"]
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/01"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1523,6 +1640,8 @@ metadata/_edit_group_ = true
 
 [node name="02" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.872956, 0, -0.487799, 0, 1, 0, 0.487799, 0, 0.872956, 0, 0.625321, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/02"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1536,6 +1655,8 @@ metadata/_edit_group_ = true
 
 [node name="03" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.523986, 0, -0.851727, 0, 1, 0, 0.851727, 0, 0.523986, 0, 1.25, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/03"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1549,6 +1670,8 @@ metadata/_edit_group_ = true
 
 [node name="04" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.0418757, 0, -0.999123, 0, 1, 0, 0.999123, 0, 0.0418757, 0, 1.875, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/04"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1562,6 +1685,8 @@ metadata/_edit_group_ = true
 
 [node name="05" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.450878, 0, -0.892586, 0, 1, 0, 0.892586, 0, -0.450878, 0, 2.5, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/05"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1575,6 +1700,8 @@ metadata/_edit_group_ = true
 
 [node name="06" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.829037, 0, -0.559193, 0, 1, 0, 0.559193, 0, -0.829037, 0, 3.125, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/06"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1588,6 +1715,8 @@ metadata/_edit_group_ = true
 
 [node name="07" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.996493, 0, -0.0836779, 0, 1, 0, 0.0836779, 0, -0.996493, 0, 3.75, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/07"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1601,6 +1730,8 @@ metadata/_edit_group_ = true
 
 [node name="08" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.910684, 0, 0.413104, 0, 1, 0, -0.413104, 0, -0.910684, 0, 4.27451, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/08"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1614,6 +1745,8 @@ metadata/_edit_group_ = true
 
 [node name="09" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.593419, 0, 0.804894, 0, 1, 0, -0.804894, 0, -0.593419, 0, 4.89951, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/09"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1627,6 +1760,8 @@ metadata/_edit_group_ = true
 
 [node name="10" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.125333, 0, 0.992115, 0, 1, 0, -0.992115, 0, -0.125333, 0, 5.52451, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/10"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1640,6 +1775,8 @@ metadata/_edit_group_ = true
 
 [node name="11" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.374607, 0, 0.927184, 0, 1, 0, -0.927184, 0, 0.374607, 0, 6.14951, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/11"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1653,6 +1790,8 @@ metadata/_edit_group_ = true
 
 [node name="12" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.374607, 0, 0.927184, 0, 1, 0, -0.927184, 0, 0.374607, 0, 6.14951, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/12"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1666,6 +1805,8 @@ metadata/_edit_group_ = true
 
 [node name="13" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.779338, 0, 0.626604, 0, 1, 0, -0.626604, 0, 0.779338, 0, 6.77451, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/13"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1679,6 +1820,8 @@ metadata/_edit_group_ = true
 
 [node name="14" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.985996, 0, 0.166769, 0, 1, 0, -0.166769, 0, 0.985996, 0, 7.39951, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/14"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1692,6 +1835,8 @@ metadata/_edit_group_ = true
 
 [node name="15" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.974788, 0, -0.223131, 0, 1, 0, 0.223131, 0, 0.974788, 0, 7.80824, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/15"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1705,6 +1850,8 @@ metadata/_edit_group_ = true
 
 [node name="16" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.742104, 0, -0.670284, 0, 1, 0, 0.670284, 0, 0.742104, 0, 8.43356, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/16"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1718,6 +1865,8 @@ metadata/_edit_group_ = true
 
 [node name="17" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.320729, 0, -0.947171, 0, 1, 0, 0.947171, 0, 0.320729, 0, 9.05824, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/17"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1731,6 +1880,8 @@ metadata/_edit_group_ = true
 
 [node name="18" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.182115, 0, -0.983277, 0, 1, 0, 0.983277, 0, -0.182115, 0, 9.68324, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/18"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1744,6 +1895,8 @@ metadata/_edit_group_ = true
 
 [node name="19" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.638674, 0, -0.769478, 0, 1, 0, 0.769478, 0, -0.638674, 0, 10.3082, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/19"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1757,6 +1910,8 @@ metadata/_edit_group_ = true
 
 [node name="20" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.932909, 0, -0.360111, 0, 1, 0, 0.360111, 0, -0.932909, 0, 10.9332, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/20"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1770,6 +1925,8 @@ metadata/_edit_group_ = true
 
 [node name="21" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.990041, 0, 0.14078, 0, 1, 0, -0.14078, 0, -0.990041, 0, 11.5582, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/21"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1783,6 +1940,8 @@ metadata/_edit_group_ = true
 
 [node name="22" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.795548, 0, 0.605891, 0, 1, 0, -0.605891, 0, -0.795548, 0, 12.1832, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/22"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1796,6 +1955,8 @@ metadata/_edit_group_ = true
 
 [node name="23" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(-0.398861, 0, 0.917012, 0, 1, 0, -0.917012, 0, -0.398861, 0, 12.8082, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/23"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1809,6 +1970,8 @@ metadata/_edit_group_ = true
 
 [node name="24" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.0991985, 0, 0.995068, 0, 1, 0, -0.995068, 0, 0.0991985, 0, 13.4332, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/24"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1822,6 +1985,8 @@ metadata/_edit_group_ = true
 
 [node name="25" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.572046, 0, 0.820222, 0, 1, 0, -0.820222, 0, 0.572046, 0, 14.0582, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/25"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1835,6 +2000,8 @@ metadata/_edit_group_ = true
 
 [node name="26" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.572046, 0, 0.820222, 0, 1, 0, -0.820222, 0, 0.572046, 0, 14.0582, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/26"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1848,6 +2015,8 @@ metadata/_edit_group_ = true
 
 [node name="27" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.899505, 0, 0.436912, 0, 1, 0, -0.436912, 0, 0.899505, 0, 14.6832, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/27"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1861,6 +2030,8 @@ metadata/_edit_group_ = true
 
 [node name="28" type="StaticBody3D" parent="LongStairs"]
 transform = Transform3D(0.998349, 0, -0.0574421, 0, 1, 0, 0.0574421, 0, 0.998349, 0, 15.3082, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="collider_01" type="CollisionShape3D" parent="LongStairs/28"]
 transform = Transform3D(-4.37114e-08, -0.913545, -0.406737, 0, 0.406737, -0.913545, 1, -3.99323e-08, -1.7779e-08, 0.332056, 0.365148, 4.9742)
@@ -1872,14 +2043,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.388
 shape = SubResource("BoxShape3D_ej6xc")
 metadata/_edit_group_ = true
 
-[node name="Enemy" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999303, -0.0373414, 0, 0.0373414, 0.999303, -4.54592, 2.52933, 2.41826)
-mesh = SubResource("SphereMesh_m6bhd")
-script = ExtResource("16_a1ka6")
-
-[node name="Area3D" type="Area3D" parent="Enemy"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/Area3D"]
-shape = SubResource("SphereShape3D_p7xeq")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l80yt")

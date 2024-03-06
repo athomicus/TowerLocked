@@ -1,10 +1,10 @@
 extends CharacterBody3D
 @onready var my_camera = $MyCamera
-
 @onready var idle_timer = $Princess/IdleTimer
-
 @onready var animation_player = $Princess/AnimationPlayer
 
+enum PlayerStates {ATTACKING,NORMAL}
+var state = PlayerStates.NORMAL
 const SPEED = 8.8 
 const JUMP_VELOCITY = 4.5
 const MOUSE_SPEED = 0.2 * (PI/180) 
@@ -12,6 +12,14 @@ const CAM_SPEED = 0.2 * (PI/180)
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")#
 
+func attack():
+	state = PlayerStates.ATTACKING
+	
+func non_attack():
+	state = PlayerStates.NORMAL
+func get_player_state():
+	return state
+	
 
 func _ready():
 	# setup loop for animation I cant find this in Godot so did it via code
@@ -41,13 +49,12 @@ func _input(event):
 		
 func _physics_process(delta):
 	
+	
 	if Input.is_action_just_pressed("SwordAttack"):
 		if animation_player.current_animation != "SwordAttack":
 			animation_player.play("SwordAttack")
+			#change_state(PlayerStates.ATTACK)
 		#animation_player.play("Die")
-	
-		
-	
 	
 	# Add the gravity.
 	if not is_on_floor():

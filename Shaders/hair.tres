@@ -9,6 +9,5 @@ disable_ambient_light = true
 albedo_texture = ExtResource("1_p5gae")
 metallic_specular = 0.0
 roughness = 0.0
-emission_enabled = true
 emission_energy_multiplier = 0.4
 emission_texture = ExtResource("1_p5gae")

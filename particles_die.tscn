@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://biywore6q0if0"]
+
+[sub_resource type="Curve" id="Curve_luiom"]
+_data = [Vector2(0.0431034, 0.985393), 0.0, 0.0, 0, 0, Vector2(0.995816, 0.233203), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ujr3l"]
+offsets = PackedFloat32Array(0.41875, 1)
+colors = PackedColorArray(0.977937, 0.977937, 0.977937, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+self_modulate = Color(1.89, 0, 0.247, 1)
+position = Vector2(0, -1)
+emitting = false
+amount = 50
+lifetime = 1.1
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(1, 1)
+initial_velocity_min = 143.17
+initial_velocity_max = 361.75
+scale_amount_min = 11.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_luiom")
+color_ramp = SubResource("Gradient_ujr3l")

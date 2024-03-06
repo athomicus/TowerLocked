@@ -52,6 +52,13 @@ SwordAttack={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemy"
+3d_physics/layer_3="sword"
+3d_physics/layer_4="stairs"
+
 [rendering]
 
 anti_aliasing/screen_space_roughness_limiter/amount=0.74
