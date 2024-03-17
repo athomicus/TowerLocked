@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cj4pty4sbxktj"
+path="res://.godot/imported/sphinx_low.obj-ebbf8d943a74f7d626ebc0587e369bd5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sphinx_low.obj-ebbf8d943a74f7d626ebc0587e369bd5.mesh"]
+
+source_file="res://Objetcs/Sphinx/sphinx_low.obj"
+dest_files=["res://.godot/imported/sphinx_low.obj-ebbf8d943a74f7d626ebc0587e369bd5.mesh", "res://.godot/imported/sphinx_low.obj-ebbf8d943a74f7d626ebc0587e369bd5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

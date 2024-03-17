@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxhcvnmxhu4uj"]
+[gd_scene load_steps=8 format=3 uid="uid://cxhcvnmxhu4uj"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_hm26p"]
 [ext_resource type="PackedScene" uid="uid://biywore6q0if0" path="res://particles_die.tscn" id="2_7fv76"]
 [ext_resource type="Script" path="res://Scripts/HealthBar3d.gd" id="3_ltash"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y5q7p"]
+viewport_path = NodePath("Enemy/SubViewport")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p7xeq"]
 radius = 0.44664
@@ -19,12 +22,15 @@ collision_mask = 9
 script = ExtResource("1_hm26p")
 deathParticle = ExtResource("2_7fv76")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_y5q7p")
+
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 shape = SubResource("SphereShape3D_p7xeq")
 
 [node name="EnemyVisualize" type="MeshInstance3D" parent="."]
@@ -36,5 +42,4 @@ transform = Transform3D(1.09, 0, 0, 0, 1.09, 3.72529e-09, 0, -3.72529e-09, 1.09,
 shape = SubResource("SphereShape3D_3rpnx")
 
 [node name="ProgressBar3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0819855, -0.000658512, -0.0176353)
 script = ExtResource("3_ltash")

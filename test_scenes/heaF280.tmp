@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb7fsmdd0vkt8"]
+
+[ext_resource type="Script" path="res://Scripts/HealthBar3d.gd" id="1_c23bc"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_hfwu4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.637424, 0.190316, -0.746639, 0, 0.969016, 0.246999, 0.770513, -0.157443, 0.617674, -1.225, 0.792, 2.39)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.748956, 0, -0.66262, 0, 1, 0, 0.66262, 0, 0.748956, 0.8, 0, 2.085)
+mesh = SubResource("PrismMesh_hfwu4")
+
+[node name="FakePlayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.480214, 0)
+script = ExtResource("1_c23bc")
+min_value = null
+max_value = null
+value = null
+empty_color = null
+full_color = null
+outline_color = null
+size = null
+empty_bar = null
+billboard = null
+shaded = null

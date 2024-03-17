@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb7fsmdd0vkt8"]
+
+[ext_resource type="Script" path="res://Scripts/HealthBar3d.gd" id="1_c23bc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mckap"]
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_787sn"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.637424, 0.190316, -0.746639, 0, 0.969016, 0.246999, 0.770513, -0.157443, 0.617674, -1.225, 0.792, 2.39)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 2.085)
+material_override = SubResource("StandardMaterial3D_mckap")
+mesh = SubResource("QuadMesh_787sn")
+
+[node name="FakePlayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.480214, 0.0407789)
+script = ExtResource("1_c23bc")

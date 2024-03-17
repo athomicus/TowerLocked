@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://md0qirl3grwi"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_olonj"]
+[ext_resource type="PackedScene" uid="uid://biywore6q0if0" path="res://particles_die.tscn" id="2_pkc5e"]
+[ext_resource type="Texture2D" uid="uid://7b6omja5lf4o" path="res://Objetcs/Sphinx/sphinx_Base_Color.png" id="3_iba3v"]
+[ext_resource type="Texture2D" uid="uid://61dbojm2mdns" path="res://Objetcs/Sphinx/sphinx_Metallic.png" id="4_xvhib"]
+[ext_resource type="Texture2D" uid="uid://b8cvmy1kbetc0" path="res://Objetcs/Sphinx/sphinx_Normal_OpenGL.png" id="5_u5vk6"]
+[ext_resource type="Texture2D" uid="uid://bhiqtpo8wxc03" path="res://Objetcs/Sphinx/sphinx_Roughness.png" id="6_d70ub"]
+[ext_resource type="ArrayMesh" uid="uid://cj4pty4sbxktj" path="res://Objetcs/Sphinx/sphinx_low.obj" id="7_8042p"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y5q7p"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdf77"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.117647, 0.117647, 0.117647, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8w8h"]
+bg_color = Color(0.709804, 0.101961, 0.109804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p7xeq"]
+radius = 0.44664
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2khj1"]
+diffuse_mode = 2
+albedo_texture = ExtResource("3_iba3v")
+metallic = 1.0
+metallic_texture = ExtResource("4_xvhib")
+roughness_texture = ExtResource("6_d70ub")
+normal_enabled = true
+normal_texture = ExtResource("5_u5vk6")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3rpnx"]
+radius = 0.931849
+
+[node name="Enemy2" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999303, -0.0373414, 0, 0.0373414, 0.999303, 4.00061, 13.869, -2.96879)
+visible = false
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_olonj")
+deathParticle = ExtResource("2_pkc5e")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31869, 0.368739, -0.771375)
+billboard = 1
+texture = SubResource("ViewportTexture_y5q7p")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+msaa_2d = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -106.0
+offset_right = 30.0
+offset_bottom = -96.0001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_hdf77")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y8w8h")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -0.170366, 0.0152311, -0.689602)
+shape = SubResource("SphereShape3D_p7xeq")
+
+[node name="SphinxLow" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0366404, -6.98492e-10, 0.0930456, -0.00347445, 0.0999302, 0.0013682, -0.0929807, -0.00373414, 0.0366148, -0.174868, -0.0214777, -0.574766)
+material_override = SubResource("StandardMaterial3D_2khj1")
+mesh = ExtResource("7_8042p")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.09, 0, 0, 0, 1.09, 4.84288e-08, 0, -4.84288e-08, 1.09, 0.107347, -0.385725, -0.548354)
+shape = SubResource("SphereShape3D_3rpnx")
